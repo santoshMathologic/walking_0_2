@@ -5,6 +5,7 @@ angular.module('walkingApp')
 	 
 	  
 	   $scope.walkingLists = [];
+	   $scope.companyLists = [];
 	   
 	   $scope.serverScopeFetch = new serverTableRetrive(
 			      "/api/v1/company/getInfo",
@@ -14,25 +15,22 @@ angular.module('walkingApp')
 					  $scope.isLoading = true;
 				  },
 				  function(resultObj){		
-					  $scope.walkingLists = resultObj;
+					  $scope.companyLists  = resultObj;
 					  $scope.isLoading = false;
 				  }
 		  );
 	   
 	   $scope.checkwalking= function(){
-		   
-		   $scope.serverScopeFetch = new serverTableRetrive(
-				      "/api/v1/company/getInfo",
-				      $http,
-					   
-					  function(){					
-						  $scope.isLoading = true;
-					  },
-					  function(resultObj){		
-						  $scope.walkingLists = resultObj;
-						  $scope.isLoading = false;
-					  }
-			  );
+		   $http.get( "/api/v1/company/getInfo").then(function(responseObj){
+			   $scope.walkingLists = responseObj.data.content;
+			   $scope.isLoading = false;
+			   
+		   },function(errorResponse){
+			   
+			   
+			   
+		   })
+		
 		        
 	   }
 	   
