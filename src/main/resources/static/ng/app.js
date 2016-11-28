@@ -90,9 +90,20 @@ var app = angular
           }
         }
       })
-       .state('dashboard.blank',{
-        templateUrl:'ng/pages/blank.html',
-        url:'/blank'
+       .state('home.dashboard.blank',{
+        templateUrl:'ng/directives/dashboard/blank/blank.directive.html',
+        controller: 'blankCtrl',
+        url:'/blank',
+        resolve: {
+            loadMyFiles:function($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name:'walkingApp',
+                files:[
+                'ng/directives/blank/blank.js'
+                ]
+              })
+            }
+          }
     })
       .state('login',{
         templateUrl:'ng/login/login.html',
