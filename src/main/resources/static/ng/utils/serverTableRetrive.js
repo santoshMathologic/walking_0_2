@@ -30,6 +30,22 @@ var serverTableRetrive = function(url,httpServices,callBackBefore,
 	tableState.start = tableState.pagination.start || 0;
 	tableState.number = tableState.pagination.number || 10;
 	
+	var sort = (tableState.sort.predicate)?tableState.sort.predicate:"";
+	var sortDir = (tableState.sort.reverse)?"asc":"desc";
+	
+	var searchParamValues = "";
+	var searchParamsList = [];
+	
+	if(tableState.search.predicateObject){	
+		for(var searchItem in tableState.search.predicateObject){
+				var searchParamsListObj= {}
+				searchParamValues = tableState.search.predicateObject[searchItem];
+				searchParamsListObj[searchItem]= searchParamValues;
+				searchParamsList.push(searchParamsListObj);
+			
+		}
+	}
+	
 	
 	httpServices.get(url)
 	.then(function(response){

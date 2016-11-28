@@ -22,6 +22,7 @@
 				<thead>
 					<tr>
 						<th>NO</th>
+						<th>DATE</th>
 						<th>CITY</th>
 						<th>COMPANYADD</th>
 						<th>COMPANY NAME</th>
@@ -32,6 +33,9 @@
 
 					<tr>
 						<th>&nbsp;</th>
+						<th><input type="text" st-ratio="90" st-search="cityname"
+							class="form-control input-sm" placeholder="date"
+							st-delay="1000" /></th>
 						<th><input type="text" st-ratio="90" st-search="cityname"
 							class="form-control input-sm" placeholder="City Name"
 							st-delay="1000" /></th>
@@ -51,6 +55,7 @@
 				<tbody>
 					<tr ng-repeat="comp in companyLists">
 						<td>{{$index+1}}</td>
+						<td>{{comp.walkingdetails.walkingdate}}</td>
 						<td>{{comp.city}}</td>
 						<td>{{comp.companyAddress | limitTo:20}}</td>
 						<td>{{comp.companyName}}</td>
