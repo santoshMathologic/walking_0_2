@@ -22,18 +22,19 @@ var app = angular
       events:true,
     });
 
-    $urlRouterProvider.otherwise('/dashboard/userPlans');
+    $urlRouterProvider.otherwise('/home/dashboard');
 
     $stateProvider
-      .state('dashboard', {
-        url:'/dashboard',
-        templateUrl: 'ng/dashboard/main.html',
+      .state('home', {
+        url:'/home',
+        templateUrl:'ng/directives/home/home.directive.html',
         resolve: {
             loadMyDirectives:function($ocLazyLoad){
                 return $ocLazyLoad.load(
                 {
                     name:'walkingApp',
                     files:[
+                           'ng/directives/home/home.js'
                    
                     ]
                 }),
@@ -72,10 +73,10 @@ var app = angular
             }
         }
     })
-      .state('dashboard.home',{
-        url:'/home',
+      .state('home.dashboard',{
+        url:'/dashboard',
         controller: 'MainCtrl',
-        templateUrl:'ng/dashboard/home.html',
+        templateUrl:'ng/directives/dashboard/dashboard.directive.html',
         resolve: {
           loadMyFiles:function($ocLazyLoad) {
             return $ocLazyLoad.load({
