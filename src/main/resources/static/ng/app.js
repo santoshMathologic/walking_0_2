@@ -131,7 +131,20 @@ var app = angular
     })
       .state('login',{
         templateUrl:'ng/login/login.html',
-        url:'/login'
+        url:'/login',
+        controller:"loginCtrl",
+        resolve: {
+            loadMyFiles:function($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name:'walkingApp',
+                files:[
+                       "ng/login/login.js",
+                       
+                       
+                ]
+              })
+            }
+          }
     });
    
   }]);
