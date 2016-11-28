@@ -54,13 +54,3 @@
     color: #df8a13;
 }
 
-.fixedheader{
-	top: 0;
-    color: #fff;
-    background-color: #3c763d;
-    padding: 18px 0 0;
-    border-bottom: 1px solid #5cb85c;
-    position: fixed;
-    left: 0;
-    width: 100%;
-	}
