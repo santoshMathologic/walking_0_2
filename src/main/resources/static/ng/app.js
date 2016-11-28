@@ -103,7 +103,8 @@ var app = angular
                 name:'walkingApp',
                 files:[
                        "ng/directives/dashboard/blank/blank.js",
-                       "ng/controllers/blank.js"
+                       "ng/controllers/blank.js",
+                       'ng/directives/dashboard/stats/stats.js'
                 ]
               })
             }
