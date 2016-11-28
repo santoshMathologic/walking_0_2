@@ -36,8 +36,13 @@ angular.module('walkingApp')
 		   
 	
 						$scope.companyLists.splice($scope.companyLists.indexOf(companyobj),1); // Splice the division Array and remove object from Array
-						toaster.pop({type: 'success', title: 'Division Removed', body: 'Division Removed Successfully!!!'}); // PopUp the toaster Once division has removed 
-						toaster.pop({type: 'error', title: 'Error', body: 'Unable To Remove Division. Please Try Again!!!'}); // On Error Response PopUp the toaster if division Not removed from DB
+						if($scope.companyLists.length>=0){
+							toaster.pop({type: 'success', title: 'company Removed', body: 'company Removed Successfully!!!'}); // PopUp the toaster Once division has removed	
+						}else{
+							 toaster.pop({type: 'error', title: 'Error', body: 'Unable To Remove company. Please Try Again!!!'}); // On Error Response PopUp the toaster if division Not removed from DB	
+						}
+						 
+						
 							   
 	   }
 	   
