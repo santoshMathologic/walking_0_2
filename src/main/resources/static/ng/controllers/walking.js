@@ -19,6 +19,23 @@ angular.module('walkingApp')
 				  }
 		  );
 	   
+	   $scope.checkwalking= function(){
+		   
+		   $scope.serverScopeFetch = new serverTableRetrive(
+				      "/api/v1/company/getInfo",
+				      $http,
+					   
+					  function(){					
+						  $scope.isLoading = true;
+					  },
+					  function(resultObj){		
+						  $scope.walkingLists = resultObj;
+						  $scope.isLoading = false;
+					  }
+			  );
+		        
+	   }
+	   
 	   
 	 console.log("walking Controller");	  
   });
