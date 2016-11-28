@@ -75,3 +75,9 @@ a {
   font-size: 20px;
    padding-left: 4px;
 }
+
+th {
+    
+    color: black;
+    font-weight: normal;
+} 
