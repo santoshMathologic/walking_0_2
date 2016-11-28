@@ -39,3 +39,10 @@ input[type=password]{
     background: rgba(255,255,255,0.5);
     margin: 0 0 10px 0;
 }
+
+.panel > .panel-heading {
+    background-image: none;
+    background-color:  rgb(104,174,0);
+    color: white;
+
+}
