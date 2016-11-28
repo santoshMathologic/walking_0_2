@@ -11,3 +11,23 @@
     left: 0;
     width: 100%;
 	}
+	
+	#profile-pics{
+	width: 40px;
+    height: 40px;
+    background: #225a46;
+    -moz-border-radius: 40px;
+    -webkit-border-radius: 40px;
+    border-radius: 40px
+}
+
+a:hover { 
+    background-color:transparent;
+}
+a{
+	color: #fff;
+}
+.navbar-right-custom{
+	margin-right: 34px;
+	background-color:transparent;
+}	
