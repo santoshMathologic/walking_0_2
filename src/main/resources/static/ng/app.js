@@ -96,7 +96,7 @@ var app = angular
         templateUrl:'ng/login/login.html',
         url:'/login'
     });
-   $httpProvider.interceptors.push('TokenInterceptor');
+   
   }]);
 
 app.filter('toArray', function() { return function(obj) {
