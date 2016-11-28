@@ -1,0 +1,1 @@
+mysql -u root --password="root" walking_db < walking_db.sql
