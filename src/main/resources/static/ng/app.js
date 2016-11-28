@@ -82,7 +82,8 @@ var app = angular
             return $ocLazyLoad.load({
               name:'walkingApp',
               files:[
-              'ng/controllers/main.js',
+              'ng/directives/dashboard/dashboard.js',
+              'ng/controllers/main.js'
              
               ]
             })
