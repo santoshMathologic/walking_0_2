@@ -1,13 +1,6 @@
 @CHARSET "ISO-8859-1";
 
 
-
-.nav-sidbar{
-   position:absolute;
-    top:0; bottom:0; left:0;
-    width:50px;
-    background:#000;
-}
 .fixedheader{
 	top: 0;
     color: #fff;
