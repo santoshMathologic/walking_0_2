@@ -55,25 +55,12 @@ a {
 	cursor: pointer;
 }
 
-.sortable {
-  cursor: pointer;
+.st-sort-ascent:before{
+    content: '\25B2';
 }
-.sortable:before {
-  font-family: FontAwesome;
-  content: "\f0dc";
-   padding-left: 4px;
-}
-.st-sort-ascent:before {
-  font-family: FontAwesome;
-  content: "\f0de";
-  font-size: 20px;
-  padding-left: 4px;
-}
-.st-sort-ascent:before {
-  font-family: FontAwesome;
-  content: "\f0dd";
-  font-size: 20px;
-   padding-left: 4px;
+
+.st-sort-descent:before{
+    content: '\25BC';
 }
 
 th {
