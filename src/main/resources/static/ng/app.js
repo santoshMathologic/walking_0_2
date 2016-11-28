@@ -9,6 +9,7 @@ var app = angular
     'ui.bootstrap',
     'angular-loading-bar',
     'ngSanitize',
+    'smart-table',
     
   ])
   .config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider','$httpProvider',
@@ -115,7 +116,9 @@ var app = angular
                 name:'walkingApp',
                 files:[
                        "ng/directives/dashboard/walking/walking.js",
-                       "ng/controllers/walking.js"
+                       "ng/controllers/walking.js",
+                       "ng/utils/serverTableRetrive.js"
+                       
                 ]
               })
             }

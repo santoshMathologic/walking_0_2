@@ -3,5 +3,21 @@
 angular.module('walkingApp')
   .controller('walkingCtrl', function($scope,$location,$http) {
 	 
-	 console.log("Main Controller")	  
+	  
+	   $scope.walkingLists = [];
+	   
+	   $scope.serverScopeFetch = new serverTableRetrive(
+			      "/api/v1/company/getInfo",
+				   
+				  function(){					
+					  $scope.isLoading = true;
+				  },
+				  function(resultObj){		
+					  $scope.walkingLists = resultObj;
+					  $scope.isLoading = false;
+				  }
+		  );
+	   
+	   
+	 console.log("walking Controller");	  
   });
