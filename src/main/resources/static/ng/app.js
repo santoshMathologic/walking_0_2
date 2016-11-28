@@ -36,7 +36,8 @@ var app = angular
                 {
                     name:'walkingApp',
                     files:[
-                           'ng/directives/home/home.js'
+                           'ng/directives/home/home.js',
+                           'ng/directives/dashboard/stats/stats.js'
                    
                     ]
                 }),

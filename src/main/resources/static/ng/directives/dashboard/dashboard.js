@@ -4,6 +4,8 @@ angular.module('walkingApp')
             restrict: 'E',
             templateUrl: 'ng/directives/dashboard/dashboard.tmpl.html',
             controller: function($scope, $state, $http, $log, $q, $timeout, $window) {
+            	
+            	// $scope.states
               
                 
             }
