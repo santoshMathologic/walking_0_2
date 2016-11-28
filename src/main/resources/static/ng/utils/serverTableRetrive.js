@@ -47,7 +47,14 @@ var serverTableRetrive = function(url,httpServices,callBackBefore,
 	}
 	
 	
-	httpServices.get(url)
+	var query = {
+			orderBy : (sort)?sort:"companyName",
+			sortDir : sortDir,
+			limit : tableState.number,
+			perPage : tableState.start 
+	}
+	
+	httpServices.get(url,{params:query})
 	.then(function(response){
 		  tableState.pagination.numberOfPages = response.data.totalPages+1; // As the total pages is start from 0
 		  tableState.pagination.totalItemCount = response.data.totalElements;

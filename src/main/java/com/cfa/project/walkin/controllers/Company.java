@@ -3,6 +3,8 @@ package com.cfa.project.walkin.controllers;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,7 +25,12 @@ public class Company {
 	CompanyDetailsRepository companyDetailsRepository;
 	    
 	   @RequestMapping(value="/getInfo",method=RequestMethod.GET)
-	   public @ResponseBody  Page<CompanyDetails> getInfo(){
+	   public @ResponseBody  Page<CompanyDetails> getInfo(
+			   			@PathParam("orderBy") String orderBy,
+			   			@PathParam("sortDir") String sortDir,
+			   			@PathParam("limit") int limit,
+			   			@PathParam("perPage")int perPage
+				){
 		        Page<CompanyDetails> CompanyDetailsList = companyDetailsRepository.findAll(new PageRequest(0, 10,Direction.ASC,"companyName"));
 		        return CompanyDetailsList;
 	   }

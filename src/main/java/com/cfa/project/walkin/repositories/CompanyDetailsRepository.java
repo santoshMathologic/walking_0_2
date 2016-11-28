@@ -7,5 +7,8 @@ import com.cfa.project.walkin.models.CompanyDetails;
 
 @RepositoryRestResource
 public interface CompanyDetailsRepository extends JpaRepository<CompanyDetails, Long>{
+	
+	
+	  
 
 }
