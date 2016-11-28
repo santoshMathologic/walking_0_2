@@ -1,5 +1,7 @@
 package com.cfa.project.walkin.models;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,8 +16,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name="company_details")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @XmlRootElement
-public class CompanyDetails {
+public class CompanyDetails implements Serializable  {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	private Long id;
