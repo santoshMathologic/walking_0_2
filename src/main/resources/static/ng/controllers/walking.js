@@ -8,6 +8,7 @@ angular.module('walkingApp')
 	   
 	   $scope.serverScopeFetch = new serverTableRetrive(
 			      "/api/v1/company/getInfo",
+			      $http,
 				   
 				  function(){					
 					  $scope.isLoading = true;
