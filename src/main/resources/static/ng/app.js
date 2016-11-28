@@ -99,7 +99,8 @@ var app = angular
               return $ocLazyLoad.load({
                 name:'walkingApp',
                 files:[
-                'ng/directives/blank/blank.js'
+                       "ng/directives/dashboard/blank/blank.js",
+                       "ng/controllers/blank.js"
                 ]
               })
             }
