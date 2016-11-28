@@ -10,6 +10,7 @@ var app = angular
     'angular-loading-bar',
     'ngSanitize',
     'smart-table',
+    'toaster'
     
   ])
   .config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider','$httpProvider',

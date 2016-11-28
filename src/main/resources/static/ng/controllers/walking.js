@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('walkingApp')
-  .controller('walkingCtrl', function($scope,$location,$http) {
+  .controller('walkingCtrl', function($scope,$location,$http,toaster) {
 	 
 	  
 	   $scope.walkingLists = [];
@@ -29,9 +29,16 @@ angular.module('walkingApp')
 			   
 			   
 			   
-		   })
-		
-		        
+		   });
+	  
+	   }
+	   $scope.removeCompany =  function(companyobj){
+		   
+	
+						$scope.companyLists.splice($scope.companyLists.indexOf(companyobj),1); // Splice the division Array and remove object from Array
+						toaster.pop({type: 'success', title: 'Division Removed', body: 'Division Removed Successfully!!!'}); // PopUp the toaster Once division has removed 
+						toaster.pop({type: 'error', title: 'Error', body: 'Unable To Remove Division. Please Try Again!!!'}); // On Error Response PopUp the toaster if division Not removed from DB
+							   
 	   }
 	   
 	   
