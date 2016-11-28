@@ -4,6 +4,11 @@ angular.module('walkingApp')
             restrict: 'E',
             templateUrl:  "ng/directives/dashboard/header/header.tmpl.html",
             controller: function($scope, $state, $window, $location) {
+            	
+            	$scope.logout = function(){
+            		
+            		 $state.go("login");
+            	}
               
               
           
