@@ -48,6 +48,7 @@
     "morrisjs": "~0.5.1",
     "ng-flow": "~2",
     "ng-tasty": "~0.5.8",
-    "oclazyload": "~0.5.2"
+    "oclazyload": "~0.5.2",
+    "angular-datepicker": "^2.0.3"
   }
 }
