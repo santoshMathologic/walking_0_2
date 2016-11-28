@@ -7,6 +7,7 @@
 						st-table="walkingLists">
     <thead>
       <tr>
+      	<th>NO</th>
         <th>CITY</th>
         <th>COMPANYADD</th>
         <th>COMPANY NAME</th>
@@ -16,6 +17,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="walk in walkingLists">
+        <td>{{$index+1}}</td>
         <td>{{walk.city}}</td>
         <td>{{walk.companyAddress | limitTo:10}}</td>
         <td>{{walk.companyName}}</td>
