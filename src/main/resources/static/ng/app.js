@@ -105,6 +105,21 @@ var app = angular
               })
             }
           }
+    }) .state('home.dashboard.walking',{
+        templateUrl:'ng/directives/dashboard/walking/walking.directive.html',
+        controller: 'walkingCtrl',
+        url:'/walking',
+        resolve: {
+            loadMyFiles:function($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name:'walkingApp',
+                files:[
+                       "ng/directives/dashboard/walking/walking.js",
+                       "ng/controllers/walking.js"
+                ]
+              })
+            }
+          }
     })
       .state('login',{
         templateUrl:'ng/login/login.html',
