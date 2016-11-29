@@ -29,9 +29,13 @@ public class Company {
 			   			@PathParam("orderBy") String orderBy,
 			   			@PathParam("sortDir") String sortDir,
 			   			@PathParam("limit") int limit,
-			   			@PathParam("perPage")int perPage
+			   			@PathParam("perPage")int perPage,
+			   			@PathParam("companyname") String companyname,
+			   			@PathParam("cityname") String cityname
 				){
-		        Page<CompanyDetails> CompanyDetailsList = companyDetailsRepository.findAll(new PageRequest(0, 10,Direction.ASC,"companyName"));
+		   
+		   //PageRequest companyPage = new PageRequest(1, 10,Direction.ASC,"companyName");
+		        Page<CompanyDetails> CompanyDetailsList = companyDetailsRepository.findByAllSearchParams(companyname,cityname,new PageRequest(1, 10,Direction.ASC,"companyName"));
 		        return CompanyDetailsList;
 	   }
 	   
