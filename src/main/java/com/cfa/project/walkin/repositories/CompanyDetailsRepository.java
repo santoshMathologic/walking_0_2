@@ -13,10 +13,10 @@ import com.cfa.project.walkin.models.CompanyDetails;
 public interface CompanyDetailsRepository extends JpaRepository<CompanyDetails, Long>{
 	
 	
-	       @Query("Select cd from CompanyDetails as cd where (cd.companyName LIKE %:companyname% or :companyname is '%%' or :companyname is NULL ) AND (cd.city LIKE %:cityname% or :cityname is'%%' or :cityname is NULL) ")
+	       @Query("Select cd from CompanyDetails as cd where (cd.companyName LIKE %:companyName% or :companyName is '%%' or :companyName is NULL ) AND (cd.city LIKE %:city% or :city is'%%' or :city is NULL) ")
 	       Page<CompanyDetails>findByAllSearchParams(
-	    		                                    @Param("companyname") String companyname,
-	    		                                    @Param("cityname") String cityname,
+	    		                                    @Param("companyName") String companyName,
+	    		                                    @Param("city") String city,
 	    		                                    Pageable pageable); 
 	  
 

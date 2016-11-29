@@ -27,18 +27,16 @@ public class Company {
 	    
 	   @RequestMapping(value="/getInfo",method=RequestMethod.GET)
 	   public @ResponseBody  Page<CompanyDetails> getInfo(
-			   			@PathParam("page") int page,
+			   			@PathParam("sort") String sort,
+			   			@PathParam("sortDir") String sortDir,
 			   			@PathParam("limit")int limit,
-			   			@RequestParam(value="searchcriteria") String searchParamsList[]
-			   			
-				){
+			   			@PathParam("page") int page,
+			   			@PathParam("city") String city
+			   			){
 		   
-		    System.out.println(""+searchParamsList);
-		     for(int i=0;i<searchParamsList.length;i++){
-		    	 System.out.println(""+searchParamsList[i].concat("city"));
-		     }
 		   
-		        Page<CompanyDetails> CompanyDetailsList = companyDetailsRepository.findByAllSearchParams("","",new PageRequest(page, limit,Direction.ASC,"companyName"));
+		      
+		        Page<CompanyDetails> CompanyDetailsList = companyDetailsRepository.findByAllSearchParams("",city,new PageRequest(page, limit,Direction.ASC,"companyName"));
 		        return CompanyDetailsList;
 	   }
 	   

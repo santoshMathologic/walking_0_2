@@ -123,6 +123,7 @@ var app = angular
                        "ng/directives/dashboard/walking/walking.js",
                        "ng/controllers/walking.js",
                        "ng/utils/serverTableRetrive.js"
+                       //"ng/utils/stSearch.js"
                        
                 ]
               })
