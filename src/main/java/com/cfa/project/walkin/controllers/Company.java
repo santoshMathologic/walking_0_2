@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.cfa.project.walkin.models.CompanyDetails;
 import com.cfa.project.walkin.repositories.CompanyDetailsRepository;
@@ -26,16 +27,18 @@ public class Company {
 	    
 	   @RequestMapping(value="/getInfo",method=RequestMethod.GET)
 	   public @ResponseBody  Page<CompanyDetails> getInfo(
-			   			@PathParam("orderBy") String orderBy,
-			   			@PathParam("sortDir") String sortDir,
-			   			@PathParam("limit") int limit,
-			   			@PathParam("perPage")int perPage,
-			   			@PathParam("companyname") String companyname,
-			   			@PathParam("cityname") String cityname
+			   			@PathParam("page") int page,
+			   			@PathParam("limit")int limit,
+			   			@RequestParam(value="searchcriteria") String searchParamsList[]
+			   			
 				){
 		   
-		   //PageRequest companyPage = new PageRequest(1, 10,Direction.ASC,"companyName");
-		        Page<CompanyDetails> CompanyDetailsList = companyDetailsRepository.findByAllSearchParams(companyname,cityname,new PageRequest(1, 10,Direction.ASC,"companyName"));
+		    System.out.println(""+searchParamsList);
+		     for(int i=0;i<searchParamsList.length;i++){
+		    	 System.out.println(""+searchParamsList[i].concat("city"));
+		     }
+		   
+		        Page<CompanyDetails> CompanyDetailsList = companyDetailsRepository.findByAllSearchParams("","",new PageRequest(page, limit,Direction.ASC,"companyName"));
 		        return CompanyDetailsList;
 	   }
 	   

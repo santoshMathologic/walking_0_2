@@ -11,7 +11,7 @@ angular.module('walkingApp')
 		   
 		    $state.go("home.dashboard.blank")
 	   }
-	 console.log("login Controller");	  
+		  
   });
 
 

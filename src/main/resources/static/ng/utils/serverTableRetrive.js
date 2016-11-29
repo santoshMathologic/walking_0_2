@@ -25,20 +25,22 @@ var serverTableRetrive = function(url,httpServices,callBackBefore,
 			return;
 		}
 		
-		console.log(tableState);
+		//console.log(tableState);
 		
-	tableState.start = tableState.pagination.start || 0;
-	tableState.number = tableState.pagination.number || 10;
+		var pagination = tableState.pagination;
+		var page = (pagination.start/pagination.number) || 0; 
+		var size = pagination.number || 10;  
 	
 	var sort = (tableState.sort.predicate)?tableState.sort.predicate:"";
 	var sortDir = (tableState.sort.reverse)?"asc":"desc";
 	
 	var searchParamValues = "";
 	var searchParamsList = [];
-	
+	var searchParamsListObj= {
+			
+	}
 	if(tableState.search.predicateObject){	
 		for(var searchItem in tableState.search.predicateObject){
-				var searchParamsListObj= {}
 				searchParamValues = tableState.search.predicateObject[searchItem];
 				searchParamsListObj[searchItem]= searchParamValues;
 				searchParamsList.push(searchParamsListObj);
@@ -47,12 +49,21 @@ var serverTableRetrive = function(url,httpServices,callBackBefore,
 	}
 	
 	
+
+	  
 	var query = {
-			orderBy : (sort)?sort:"companyName",
+			sort : (sort)?sort:"",
 			sortDir : sortDir,
-			limit : tableState.number,
-			perPage : tableState.start 
+			limit : size,
+			page : page,
+			searchcriteria  : searchParamsList
 	}
+	
+	
+	
+	
+	
+	
 	
 	httpServices.get(url,{params:query})
 	.then(function(response){

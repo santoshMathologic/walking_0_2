@@ -54,5 +54,5 @@ angular.module('walkingApp')
 	   }
 	   
 	   
-	 console.log("walking Controller");	  
+	 	  
   });
