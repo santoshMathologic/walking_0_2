@@ -3,14 +3,16 @@
  */
 package com.cfa.projects.walking.custom.repositories;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
-
+import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -18,10 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-
 import com.cfa.project.walkin.models.CompanyDetails;
+import com.cfa.project.walkin.models.WalkingDetails;
 
 /**
  * @author SANTOSH
@@ -52,7 +52,7 @@ public class CompanyDetailsCustomRepositoryImpl implements CompanyDetailsCustomR
 
 	@Override
 	@Transactional(readOnly = false)
-	public List<CompanyDetails> findByAllSearchParams(int page, int limit,String City,String State) {
+	public List<CompanyDetails> findByAllSearchParams(int page, int limit,String City,String State,String walkDate) {
 		
 		 Session session = sessionFactory.openSession();
 		
@@ -81,7 +81,7 @@ public class CompanyDetailsCustomRepositoryImpl implements CompanyDetailsCustomR
 		     */
 		   //List<CompanyDetails> finalResult = findByAllParamsByNative(page,limit,City,State);
 		   
-		   List<CompanyDetails> finalResult   = findByAllParamsByCriteria(page,limit,City,State);
+		   List<CompanyDetails> finalResult   = findByAllParamsByCriteria(page,limit,City,State,walkDate);
 		  
 		    return finalResult;
 	}
@@ -113,12 +113,25 @@ public class CompanyDetailsCustomRepositoryImpl implements CompanyDetailsCustomR
 	
 
 	
-	public List<CompanyDetails> findByAllParamsByCriteria (int page, int limit,String City,String State){
+	public List<CompanyDetails> findByAllParamsByCriteria (int page, int limit,String City,String State,String walkdate){
 		  List<CompanyDetails> result = null;
 		  Session session = sessionFactory.openSession();
+		  Criteria cr = session.createCriteria(CompanyDetails.class,"CompanyDetails").createAlias("CompanyDetails.walkingdetails", "walkingdetails");
 		  
-		  Criteria cr = session.createCriteria(CompanyDetails.class);
-		 // cr.add(Restrictions.like("state",State));
+		  SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-YYYY");
+		  Date wdate = null;
+		  try {
+			  if(walkdate!=null){
+				  wdate = formatter.parse(walkdate);
+				  cr.add(Restrictions.eq("walkingdetails.walkingdate",wdate));
+			  }
+			 
+		} catch (ParseException ex) {
+			System.out.println("ERROR in Date Parsing: " + ex.getMessage());
+		}
+		  
+		   
+		
 		    if(State!=null){
 		    	cr.add(Restrictions.like("state", "%" +State + "%"));
 		    }

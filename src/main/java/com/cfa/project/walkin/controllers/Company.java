@@ -42,7 +42,7 @@ public class Company {
 		  
 		   
 		 
-		   List<CompanyDetails> CompanyDetailsList  = (List<CompanyDetails>) companyDetailsCustomRepository.findByAllSearchParams(page, limit, city,state);
+		   List<CompanyDetails> CompanyDetailsList  = (List<CompanyDetails>) companyDetailsCustomRepository.findByAllSearchParams(page, limit, city,state,walkingdate);
 		 
 		   //Page<CompanyDetails> CompanyDetailsList = companyDetailsRepository.findByAllSearchParams(walkingdate,"",city,state,new PageRequest(page, limit,Direction.ASC,"companyName"));
 	        return CompanyDetailsList;
