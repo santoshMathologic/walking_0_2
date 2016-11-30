@@ -77,6 +77,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-solr</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.karaf.shell</groupId>
+			<artifactId>org.apache.karaf.shell.core</artifactId>
+			<version>4.0.3</version>
+		</dependency>
 	</dependencies>
 
 	<build>

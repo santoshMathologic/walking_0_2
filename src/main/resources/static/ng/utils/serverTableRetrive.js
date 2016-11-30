@@ -90,7 +90,8 @@ var serverTableRetrive = function(url,httpServices,callBackBefore,
 		  tableState.pagination.numberOfPages = response.data.totalPages+1; // As the total pages is start from 0
 		  tableState.pagination.totalItemCount = response.data.totalElements;
 		  
-		  var resultObj = response.data.content;
+		//  var resultObj = response.data.content;
+		  var resultObj = response.data;
         //  tableState.pagination.numberOfPages = response.data.last;
          // tableState.pagination.totalItemCount = response.data.count;
           resultObj.tableState = tableState;
