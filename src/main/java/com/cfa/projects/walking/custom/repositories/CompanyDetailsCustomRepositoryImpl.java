@@ -3,10 +3,13 @@
  */
 package com.cfa.projects.walking.custom.repositories;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Month;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -114,19 +117,52 @@ public class CompanyDetailsCustomRepositoryImpl implements CompanyDetailsCustomR
 
 	
 	public List<CompanyDetails> findByAllParamsByCriteria (int page, int limit,String City,String State,String walkdate){
-		  List<CompanyDetails> result = null;
+ 		  List<CompanyDetails> result = null;
 		  Session session = sessionFactory.openSession();
 		  Criteria cr = session.createCriteria(CompanyDetails.class,"CompanyDetails").createAlias("CompanyDetails.walkingdetails", "walkingdetails");
 		  
-		  SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-YYYY");
 		  Date wdate = null;
 		  try {
 			  if(walkdate!=null){
-				  wdate = formatter.parse(walkdate);
-				  cr.add(Restrictions.eq("walkingdetails.walkingdate",wdate));
+				
+				  /*
+				           java.util.Date uDate = new java.util.Date();
+				           +
+				           System.out.println("Time in java.util.Date is : " + uDate);
+				           //java.sql.Date sDate = convertUtilToSql(uDate);
+				           //System.out.println("Time in java.sql.Date is : " + sDate);
+				           Date df = new SimpleDateFormat("YYYY-MM-dd",Locale.US).parse(walkdate);
+				           java.sql.Date sDate = convertUtilToSql(df);
+				           //System.out.println("Using a dateFormat date is : " + df.format(uDate));
+				            * 
+				            * 
+*/
+				  
+				   java.util.Date uDate = new java.util.Date();
+		           System.out.println("Time in java.util.Date is : " + uDate);
+		           java.sql.Date sDate = convertUtilToSql(uDate);
+		           System.out.println("Time in java.sql.Date is : " + sDate);
+		           DateFormat df = new SimpleDateFormat("YYYY-MM-dd");
+		           System.out.println("Using a dateFormat date is : " + df.format(uDate));
+		           int monthNumber = 10;
+		           String dateStr = getDayOfWeek(1)+" "+Month.of(monthNumber).name().substring(0, 3)+" "+"30"+" 00:00:00 "+"IST"+" 2016";
+		           DateFormat formatter = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy",Locale.US);
+		           Date date = (Date)formatter.parse(dateStr);
+		           java.sql.Date sDate1 = convertUtilToSql(date);
+		           System.out.println(sDate1);        
+		          
+		           
+		          
+		        
+		           System.out.println(getDayOfWeek(1)+" "+Month.of(monthNumber).name().substring(0, 3)+" "+"30"+" 00:00:00 "+"IST"+" 2016");
+		           
+		          
+				  
+				  
+				  cr.add(Restrictions.eq("walkingdetails.walkingdate", sDate));
 			  }
 			 
-		} catch (ParseException ex) {
+		} catch (Exception ex) {
 			System.out.println("ERROR in Date Parsing: " + ex.getMessage());
 		}
 		  
@@ -149,8 +185,42 @@ public class CompanyDetailsCustomRepositoryImpl implements CompanyDetailsCustomR
 			}
 			return result;
 	}
-	
-	
+
+	private java.sql.Date convertUtilToSql(Date uDate) {
+		java.sql.Date sDate = new java.sql.Date(uDate.getTime());
+		 return sDate;
+
+	}
+
+	private String getDayOfWeek(int value) {
+		String day = "";
+		switch (value) {
+		case 1:
+			day = "SUN";
+			break;
+		case 2:
+			day = "MON";
+			break;
+		case 3:
+			day = "TUES";
+			break;
+		case 4:
+			day = "WED";
+			break;
+		case 5:
+			day = "THURS";
+			break;
+		case 6:
+			day = "FRI";
+			break;
+		case 7:
+			day = "SAT";
+			break;
+		default : 
+			      System.out.println("Invalid Days");
+		}
+		return day;
+	}
 	 
 		
 	
