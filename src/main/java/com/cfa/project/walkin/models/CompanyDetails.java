@@ -2,6 +2,7 @@ package com.cfa.project.walkin.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -27,16 +28,22 @@ public class CompanyDetails implements Serializable  {
 	@GeneratedValue
 	private Long id;
 	
+	@Column(name="company_name")
 	private String companyName;
+	@Column(name="company_address")
 	private String companyAddress;
 	
+	@Column(name="city")
 	private String city;
+	@Column(name="state")
 	private String state;
+	@Column(name="country")
 	private String country;
 	
 	
 	@NotNull
 	@ManyToOne
+	
 	private WalkingDetails walkingdetails;
 
 	public CompanyDetails() {

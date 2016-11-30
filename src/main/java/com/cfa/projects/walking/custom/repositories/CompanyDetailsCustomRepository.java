@@ -12,6 +12,6 @@ import java.util.List;
 public interface CompanyDetailsCustomRepository {
 	
 		
-	     List<?> findByAllSearchParams(int page, int limit,String city);
+	     List<?> findByAllSearchParams(int page, int limit,String City,String State);
 
 }
