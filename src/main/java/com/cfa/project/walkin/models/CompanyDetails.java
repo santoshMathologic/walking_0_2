@@ -41,9 +41,11 @@ public class CompanyDetails implements Serializable  {
 	private String country;
 	
 	
+	@Column(name="markDelete",columnDefinition="BIT(1) DEFAULT b'0'")
+	private Boolean markDelete;
+	
 	@NotNull
 	@ManyToOne
-	
 	private WalkingDetails walkingdetails;
 
 	public CompanyDetails() {
@@ -51,12 +53,22 @@ public class CompanyDetails implements Serializable  {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CompanyDetails(Long id, String companyName, WalkingDetails walkingdetails) {
+	
+
+	public CompanyDetails(Long id, String companyName, String companyAddress, String city, String state, String country,
+			Boolean markDelete, WalkingDetails walkingdetails) {
 		super();
 		this.id = id;
 		this.companyName = companyName;
+		this.companyAddress = companyAddress;
+		this.city = city;
+		this.state = state;
+		this.country = country;
+		this.markDelete = markDelete;
 		this.walkingdetails = walkingdetails;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -112,6 +124,19 @@ public class CompanyDetails implements Serializable  {
 
 	public void setCountry(String country) {
 		this.country = country;
-	} 
+	}
+
+
+
+	public Boolean getMarkDelete() {
+		return markDelete;
+	}
+
+
+
+	public void setMarkDelete(Boolean markDelete) {
+		this.markDelete = markDelete;
+	}
+
 	
 }

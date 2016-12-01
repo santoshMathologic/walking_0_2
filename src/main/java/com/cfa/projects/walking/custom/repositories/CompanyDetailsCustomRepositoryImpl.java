@@ -22,6 +22,7 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.Query;
 import com.cfa.project.walkin.models.CompanyDetails;
@@ -210,6 +211,32 @@ public class CompanyDetailsCustomRepositoryImpl implements CompanyDetailsCustomR
 			      System.out.println("Invalid Days");
 		}
 		return day;
+	}
+
+	@Override
+	@Rollback(true)
+	@Transactional(readOnly = false)
+	public String deleteCompanyDetails(CompanyDetails companydetails) {
+		Boolean bCheck = Boolean.FALSE;
+		try {
+			if (!bCheck) {
+				Long companydetailsId  =  companydetails.getId();
+				CompanyDetails CompanyDetailObj = entityManager.find(CompanyDetails.class, companydetailsId);
+				if(CompanyDetailObj != null){
+					CompanyDetailObj.setMarkDelete(true);   
+					entityManager.merge(CompanyDetailObj);
+					
+					bCheck = Boolean.TRUE;
+					if (bCheck) {
+						return "Company has been removed Successfully";
+					}
+				}
+			}
+		  } catch (Exception ex) {
+			System.out.println("Error in Removing company details " + ex);
+		}
+	 return null;
+		
 	}
 	 
 		

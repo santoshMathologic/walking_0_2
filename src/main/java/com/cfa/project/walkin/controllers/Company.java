@@ -3,9 +3,15 @@ package com.cfa.project.walkin.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.websocket.server.PathParam;
 
+import org.apache.http.HttpStatus;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,6 +70,21 @@ public class Company {
 		   
 	   }
 
+	  
+	  @RequestMapping(value="/removeCompany",method=RequestMethod.PUT)
+	   public @ResponseBody String removeCompany(@RequestBody CompanyDetails companyDetails,HttpServletRequest request, HttpServletResponse response){
+		   String successOrErrorMessage = "";
+
+		try {
+			if (companyDetails == null) {
+				throw new IllegalArgumentException("Error in removing Company");
+			}
+			successOrErrorMessage = companyDetailsCustomRepository.deleteCompanyDetails(companyDetails);
+		} catch (Exception ex) {
+			successOrErrorMessage = ex + " <== error";
+		}
+		  return successOrErrorMessage; 
+	   }
 
 
 	public CompanyDetailsRepository getCompanyDetailsRepository() {
