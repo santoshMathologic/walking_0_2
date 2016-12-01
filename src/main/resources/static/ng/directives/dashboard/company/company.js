@@ -4,7 +4,8 @@ angular.module('walkingApp')
             restrict: 'E',
             templateUrl:  "ng/directives/dashboard/company/company.tmpl.html",
             controller: function($scope, $state, $window, $location) {
-              
+            	
+    			
               
           
             }

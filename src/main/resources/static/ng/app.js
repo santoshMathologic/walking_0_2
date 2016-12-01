@@ -88,7 +88,8 @@ var app = angular
               'ng/directives/dashboard/dashboard.js',
               'ng/directives/dashboard/header/header.js',
               'ng/directives/dashboard/sidebar/sidebar.js',
-              'ng/controllers/main.js'
+              'ng/controllers/main.js',
+              'ng/utils/customConverter.js'
              
               ]
             })
@@ -111,7 +112,25 @@ var app = angular
               })
             }
           }
-    }) .state('home.dashboard.walking',{
+    }) .state('home.dashboard.company',{
+        templateUrl:'ng/directives/dashboard/company/company.directive.html',
+        controller: 'companyCtrl',
+        url:'/company',
+        resolve: {
+            loadMyFiles:function($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name:'walkingApp',
+                files:[
+                       "ng/directives/dashboard/company/company.js",
+                       "ng/controllers/company.js",
+                       "ng/utils/serverTableRetrive.js"
+
+                       
+                ]
+              })
+            }
+          }
+    }).state('home.dashboard.walking',{
         templateUrl:'ng/directives/dashboard/walking/walking.directive.html',
         controller: 'walkingCtrl',
         url:'/walking',
@@ -123,7 +142,7 @@ var app = angular
                        "ng/directives/dashboard/walking/walking.js",
                        "ng/controllers/walking.js",
                        "ng/utils/serverTableRetrive.js"
-                       //"ng/utils/stSearch.js"
+
                        
                 ]
               })
