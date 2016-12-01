@@ -13,8 +13,9 @@ angular.module('walkingApp')
 		$scope.title = $scope.string;
   
 	  
-	   $scope.walkingLists = [];
+	   $scope.walking = {};
 	   $scope.companyLists = [];
+	   $scope.isLoading = true;
 	   
 	   $scope.serverScopeFetch = new serverTableRetrive(
 			      "/api/v1/company/getInfo",
@@ -38,7 +39,7 @@ angular.module('walkingApp')
 					   walkinId : (compnayObj.id) ? compnayObj.id : 0 
 					}
 			   $http.get("api/v1/walking/getWalkinginfo",{params:$scope.query}).then(function(responseObj){
-				   $scope.walkingLists = responseObj.data;
+				   $scope.walking = responseObj.data;
 				   $scope.isLoading = false;
 				   
 			   },function(errorResponse){
