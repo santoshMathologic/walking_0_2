@@ -4,7 +4,6 @@
 package com.cfa.projects.walking.custom.repositories;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Month;
 import java.util.Date;
@@ -15,7 +14,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.hibernate.Criteria;
-import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -24,7 +22,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.Query;
 import com.cfa.project.walkin.models.CompanyDetails;
-import com.cfa.project.walkin.models.WalkingDetails;
 
 /**
  * @author SANTOSH
@@ -97,9 +94,7 @@ public class CompanyDetailsCustomRepositoryImpl implements CompanyDetailsCustomR
 		 
 		  String customQuery = "FROM CompanyDetails cd WHERE (cd.city LIKE CONCAT('%', :City, '%') OR :City IS NULL or :City IS '') AND (cd.state LIKE :State OR :State IS NULL OR :State IS '') ORDER BY cd.companyName ASC";
 				Query query2f = entityManager.createQuery(customQuery);
-				
-				//query2f.setParameter("City",'%' + City + '%');
-				query2f.setParameter("City",City);
+				query2f.setParameter("City",'%' + City + '%');
 				query2f.setParameter("City", null);
 				query2f.setParameter("State",'%' + State + '%');
 				query2f.setParameter("State", null);
