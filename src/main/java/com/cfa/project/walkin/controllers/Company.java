@@ -30,7 +30,6 @@ public class Company {
 	   @RequestMapping(value="/getInfo",method=RequestMethod.GET)
 	   public @ResponseBody  List<CompanyDetails> getInfo(
 			   			@PathParam("sort") String sort,
-			   			@PathParam("sortDir") String sortDir,
 			   			@PathParam("limit")int limit,
 			   			@PathParam("page") int page,
 			   			@PathParam("walkingdate") String walkingdate,
@@ -42,7 +41,8 @@ public class Company {
 		  
 		   
 		 
-		   List<CompanyDetails> CompanyDetailsList  = (List<CompanyDetails>) companyDetailsCustomRepository.findByAllSearchParams(page, limit, city,state,walkingdate);
+		   @SuppressWarnings("unchecked")
+		List<CompanyDetails> CompanyDetailsList  = (List<CompanyDetails>) companyDetailsCustomRepository.findByAllSearchParams(page, limit,sort ,city,state,walkingdate);
 		 
 		   //Page<CompanyDetails> CompanyDetailsList = companyDetailsRepository.findByAllSearchParams(walkingdate,"",city,state,new PageRequest(page, limit,Direction.ASC,"companyName"));
 	        return CompanyDetailsList;

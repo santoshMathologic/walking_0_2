@@ -16,6 +16,8 @@ import javax.persistence.PersistenceContext;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -52,7 +54,7 @@ public class CompanyDetailsCustomRepositoryImpl implements CompanyDetailsCustomR
 
 	@Override
 	@Transactional(readOnly = false)
-	public List<CompanyDetails> findByAllSearchParams(int page, int limit,String City,String State,String walkDate) {
+	public List<CompanyDetails> findByAllSearchParams(int page, int limit,String sort,String City,String State,String walkDate) {
 		
 		 Session session = sessionFactory.openSession();
 		
@@ -81,7 +83,7 @@ public class CompanyDetailsCustomRepositoryImpl implements CompanyDetailsCustomR
 		     */
 		   //List<CompanyDetails> finalResult = findByAllParamsByNative(page,limit,City,State);
 		   
-		   List<CompanyDetails> finalResult   = findByAllParamsByCriteria(page,limit,City,State,walkDate);
+		   List<CompanyDetails> finalResult   = findByAllParamsByCriteria(page,limit,sort,City,State,walkDate);
 		  
 		    return finalResult;
 	}
@@ -111,10 +113,15 @@ public class CompanyDetailsCustomRepositoryImpl implements CompanyDetailsCustomR
 	
 
 	
-	public List<CompanyDetails> findByAllParamsByCriteria (int page, int limit,String City,String State,String walkingDate){
+	public List<CompanyDetails> findByAllParamsByCriteria (int page, int limit,String sort,String City,String State,String walkingDate){
  		  List<CompanyDetails> result = null;
 		  Session session = sessionFactory.openSession();
 		  Criteria cr = session.createCriteria(CompanyDetails.class,"CompanyDetails").createAlias("CompanyDetails.walkingdetails", "walkingdetails");
+		  cr.setFirstResult(page);
+		  cr.setMaxResults(limit);
+		  cr.addOrder(Order.asc("companyName"));
+		 // cr.setProjection(Projections.rowCount());
+		//  Long count = (Long) cr.uniqueResult();
 		  try {
 			  if(walkingDate!=null){
 			       String[] walkgdate = walkingDate.split("-");
@@ -141,9 +148,10 @@ public class CompanyDetailsCustomRepositoryImpl implements CompanyDetailsCustomR
 		    	cr.add(Restrictions.like("city", "%" +City + "%"));
 		    }
 		    
-		    cr.setFirstResult(page);
-		    cr.setMaxResults(limit);
-		 
+		    Criteria criteriaCount = session.createCriteria(CompanyDetails.class,"CompanyDetails").createAlias("CompanyDetails.walkingdetails", "walkingdetails");
+		    criteriaCount.setProjection(Projections.rowCount());
+		    Long count = (Long) criteriaCount.uniqueResult();
+		    
 			try {
 				result = cr.list();
 			} catch (Exception ex) {
