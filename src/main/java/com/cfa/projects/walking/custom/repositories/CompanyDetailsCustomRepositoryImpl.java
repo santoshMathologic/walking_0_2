@@ -119,6 +119,7 @@ public class CompanyDetailsCustomRepositoryImpl implements CompanyDetailsCustomR
  		  List<CompanyDetails> result = null;
 		  Session session = sessionFactory.openSession();
 		  Criteria cr = session.createCriteria(CompanyDetails.class,"CompanyDetails").createAlias("CompanyDetails.walkingdetails", "walkingdetails");
+		  cr.add(Restrictions.eq("markDelete",false));
 		  cr.setFirstResult(page);
 		  cr.setMaxResults(limit);
 		 
@@ -223,15 +224,16 @@ public class CompanyDetailsCustomRepositoryImpl implements CompanyDetailsCustomR
 				Long companydetailsId  =  companydetails.getId();
 				CompanyDetails CompanyDetailObj = entityManager.find(CompanyDetails.class, companydetailsId);
 				if(CompanyDetailObj != null){
-					CompanyDetailObj.setMarkDelete(true);   
-					entityManager.merge(CompanyDetailObj);
-					
-					bCheck = Boolean.TRUE;
-					if (bCheck) {
-						return "Company has been removed Successfully";
+					if(!CompanyDetailObj.getMarkDelete()){
+						   CompanyDetailObj.setMarkDelete(true);
+						   entityManager.merge(CompanyDetailObj);
+						   bCheck = Boolean.TRUE;
+							if (bCheck) {
+								return "Company has been removed Successfully";
+							}
+					     }
 					}
-				}
-			}
+			  }
 		  } catch (Exception ex) {
 			System.out.println("Error in Removing company details " + ex);
 		}
