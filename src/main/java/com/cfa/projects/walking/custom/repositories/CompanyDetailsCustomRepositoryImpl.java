@@ -18,6 +18,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -119,9 +120,24 @@ public class CompanyDetailsCustomRepositoryImpl implements CompanyDetailsCustomR
 		  Criteria cr = session.createCriteria(CompanyDetails.class,"CompanyDetails").createAlias("CompanyDetails.walkingdetails", "walkingdetails");
 		  cr.setFirstResult(page);
 		  cr.setMaxResults(limit);
-		  cr.addOrder(Order.asc("companyName"));
-		 // cr.setProjection(Projections.rowCount());
-		//  Long count = (Long) cr.uniqueResult();
+		 
+		String sortParam = "";
+		String sortOrder = "";
+		Order o = null;
+		if (!(sort == null)) {
+			sortParam = sort.split(",")[0];
+			sortOrder = sort.split(",")[1];
+			if (sortOrder.contains("asc")) {
+				o = Order.asc(sortParam);
+			}
+			if (sortOrder.contains("desc")) {
+				o = Order.desc(sortParam);
+			}
+
+			cr.addOrder(o);
+		}
+		  
+		 
 		  try {
 			  if(walkingDate!=null){
 			       String[] walkgdate = walkingDate.split("-");
