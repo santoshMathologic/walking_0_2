@@ -116,50 +116,21 @@ public class CompanyDetailsCustomRepositoryImpl implements CompanyDetailsCustomR
 	
 
 	
-	public List<CompanyDetails> findByAllParamsByCriteria (int page, int limit,String City,String State,String walkdate){
+	public List<CompanyDetails> findByAllParamsByCriteria (int page, int limit,String City,String State,String walkingDate){
  		  List<CompanyDetails> result = null;
 		  Session session = sessionFactory.openSession();
 		  Criteria cr = session.createCriteria(CompanyDetails.class,"CompanyDetails").createAlias("CompanyDetails.walkingdetails", "walkingdetails");
-		  
-		  Date wdate = null;
 		  try {
-			  if(walkdate!=null){
-				
-				  /*
-				           java.util.Date uDate = new java.util.Date();
-				           +
-				           System.out.println("Time in java.util.Date is : " + uDate);
-				           //java.sql.Date sDate = convertUtilToSql(uDate);
-				           //System.out.println("Time in java.sql.Date is : " + sDate);
-				           Date df = new SimpleDateFormat("YYYY-MM-dd",Locale.US).parse(walkdate);
-				           java.sql.Date sDate = convertUtilToSql(df);
-				           //System.out.println("Using a dateFormat date is : " + df.format(uDate));
-				            * 
-				            * 
-*/
-				  
-				   java.util.Date uDate = new java.util.Date();
-		           System.out.println("Time in java.util.Date is : " + uDate);
-		           java.sql.Date sDate = convertUtilToSql(uDate);
-		           System.out.println("Time in java.sql.Date is : " + sDate);
-		           DateFormat df = new SimpleDateFormat("YYYY-MM-dd");
-		           System.out.println("Using a dateFormat date is : " + df.format(uDate));
-		           int monthNumber = 10;
-		           String dateStr = getDayOfWeek(1)+" "+Month.of(monthNumber).name().substring(0, 3)+" "+"30"+" 00:00:00 "+"IST"+" 2016";
-		           DateFormat formatter = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy",Locale.US);
-		           Date date = (Date)formatter.parse(dateStr);
-		           java.sql.Date sDate1 = convertUtilToSql(date);
-		           System.out.println(sDate1);        
-		          
-		           
-		          
-		        
-		           System.out.println(getDayOfWeek(1)+" "+Month.of(monthNumber).name().substring(0, 3)+" "+"30"+" 00:00:00 "+"IST"+" 2016");
-		           
-		          
-				  
-				  
-				  cr.add(Restrictions.eq("walkingdetails.walkingdate", sDate));
+			  if(walkingDate!=null){
+			       String[] walkgdate = walkingDate.split("-");
+		           String yyyy = walkgdate [0];
+		           String mm = walkgdate   [1];
+		           String dd = walkgdate   [2];
+		           String completeConverted = getDayOfWeek(1)+" "+Month.of(Integer.parseInt(mm)).name().substring(0, 3)+" "+dd +" 00:00:00 "+"IST"+" "+yyyy;
+		           DateFormat formatter1 = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy",Locale.US);
+		           Date date1 = (Date)formatter1.parse(completeConverted);
+		           java.sql.Date sqlDate2 = convertUtilToSql(date1);
+		           cr.add(Restrictions.eq("walkingdetails.walkingdate", sqlDate2));
 			  }
 			 
 		} catch (Exception ex) {
