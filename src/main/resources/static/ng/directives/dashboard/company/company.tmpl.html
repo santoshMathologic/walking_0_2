@@ -50,7 +50,7 @@
 					</tr>
 
 				</thead>
-				<tbody>
+				<tbody ng-show="!isLoading">
 					<tr ng-repeat="comp in companyLists">
 						<td>{{$index+1}}</td>
 						<td>{{comp.walkingdetails.walkingdate |  date:'dd/MM/yyyy'}}</td>
@@ -72,6 +72,32 @@
 					</tr>
 
 				</tbody>
+				
+				<tbody ng-show="isLoading">
+					<tr>
+						<td colspan="10" class="text-center"><i
+							class="fa fa-spinner fa-2x fa-pulse"> </i> Loading Data...</td>
+					</tr>
+				</tbody>
+
+
+				<tfoot>
+					<tr>
+						<td colspan="9" class="text-center">
+							<ul class="pagination pagination-sm">
+								<li><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+							</ul> <!-- <div st-items-by-page="itemsPerPage" st-pagination=""
+										st-template="scripts/directives/pagination/pagination.custom.html">
+									</div>
+									!-->
+						</td>
+					</tr>
+				</tfoot>
+
 			</table>
 
 
