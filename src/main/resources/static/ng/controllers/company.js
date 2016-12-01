@@ -29,17 +29,26 @@ angular.module('walkingApp')
 				  }
 		  );
 	   
-	   $scope.checkwalking= function(){
-		   $http.get( "/api/v1/company/getInfo").then(function(responseObj){
-			   $scope.walkingLists = responseObj.data.content;
-			   $scope.isLoading = false;
-			   
-		   },function(errorResponse){
-			   
-			   
-			   
-		   });
-	  
+	   $scope.checkwalking= function(compnayObj){
+		   
+		   
+		   if(typeof compnayObj === 'object'||typeof compnayObj !== "undefined"){
+			
+			   $scope.query = {
+					   walkinId : (compnayObj.id) ? compnayObj.id : 0 
+					}
+			   $http.get("api/v1/walking/getWalkinginfo",{params:$scope.query}).then(function(responseObj){
+				   $scope.walkingLists = responseObj.data;
+				   $scope.isLoading = false;
+				   
+			   },function(errorResponse){
+				   
+				   
+				   
+			   });
+		  
+		   }
+		   
 	   }
 	   $scope.removeCompany =  function(companyobj){
 		   

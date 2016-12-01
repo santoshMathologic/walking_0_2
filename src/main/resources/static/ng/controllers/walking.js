@@ -14,6 +14,9 @@ angular.module('walkingApp')
 		$scope.string = $scope.string
 				.replaceParentHeader('.', ' > ');
 		$scope.title = $scope.string;
+		
+		
+		
     
 	  
 	  
