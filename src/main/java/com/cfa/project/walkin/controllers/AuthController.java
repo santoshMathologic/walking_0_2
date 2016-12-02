@@ -9,6 +9,7 @@ import java.security.Key;
 import java.util.Base64;
 import javax.servlet.http.HttpServletRequest;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,10 +17,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
+import com.cfa.project.walkin.exception.CustomException;
 import com.cfa.project.walkin.models.CustomToken;
 
 import com.cfa.project.walkin.repositories.UserPlanRepository;
 import com.cfa.project.walkin.repositories.UserRepository;
+import com.cfa.projects.walking.custom.repositories.UserCustomRepository;
+
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.SignatureException;
@@ -44,7 +49,10 @@ public class AuthController {
 	@Autowired
 	UserPlanRepository userPlanRepository;
 	
+	@Autowired
+	UserCustomRepository userCustomRepository;
 	
+	//private static final Logger WALKING_LOGGER = Logger.getLogger(AuthController.class);
 	
 	
 
@@ -98,7 +106,12 @@ public class AuthController {
 	
 	public String validateUserInfo(String username, String password) {
 		
-		
+		try {
+			com.cfa.project.walkin.models.User user = userCustomRepository.findUsernameAndPassword(username, password);
+		} catch (CustomException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	 
 		 return null;
 	}
