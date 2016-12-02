@@ -1,6 +1,18 @@
 'use strict';
 
 
+var api={
+		 protocol: 'http',
+		 server: 'localhost',
+		 port: 6060,
+		 baseUrl: '/api/v1',
+		 loginUrl: '/login',
+		 registrationUrl:'/registration'
+}
+
+var apiUrl = api.protocol + '://' + api.server + ':' + api.port + api.baseUrl;
+var apiLoginUrl = api.protocol + '://' + api.server + ':' + api.port + api.loginUrl;
+var apiRegistrationUrl = api.protocol + '://' + api.server + ':' + api.port + api.registrationUrl;
 
 var app = angular
   .module('walkingApp', [

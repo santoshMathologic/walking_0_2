@@ -17,7 +17,15 @@ angular.module('walkingApp')
 		    	    },500);
 		    	}
 		    else{
-		    	$state.go("home.dashboard.blank")	
+		    	
+		    	UserAuthFactory.login(username,password).success(function(response){
+		    		
+		    		console.log(response);
+		    		
+		    		$state.go("home.dashboard.blank")	
+		    		
+		    	});
+		    		
 		    }
 		    
 	   }
