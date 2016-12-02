@@ -169,6 +169,22 @@ var app = angular
               })
             }
           }
+    }).state('registration',{
+        templateUrl:'ng/registration/registration.directive.html',
+        url:'/registration',
+        controller:"registrationCtrl",
+        resolve: {
+            loadMyFiles:function($ocLazyLoad) {
+              return $ocLazyLoad.load({
+                name:'walkingApp',
+                files:[
+                       "ng/registration/registration.js",
+                       "ng/controllers/registration.js"
+                       
+                 ]
+              })
+            }
+          }
     });
    
   }]);
