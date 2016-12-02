@@ -91,7 +91,8 @@ var app = angular
               'ng/directives/dashboard/header/header.js',
               'ng/directives/dashboard/sidebar/sidebar.js',
               'ng/controllers/main.js',
-              'ng/utils/customConverter.js'
+              'ng/utils/customConverter.js',
+              
               
              
               ]
@@ -164,7 +165,8 @@ var app = angular
                        "ng/login/login.js",
                        'ng/factory/AuthenticationFactory.js',
                        'ng/factory/UserAuthFactory.js',
-                       'ng/factory/TokenInterceptor.js'
+                       'ng/factory/TokenInterceptor.js',
+                       'ng/services/ConfirmService.js'
                        
                        
                 ]
