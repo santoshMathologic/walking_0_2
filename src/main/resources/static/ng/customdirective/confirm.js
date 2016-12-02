@@ -1,7 +1,7 @@
 /**
  * 
  */
-
+'use strict';
 var app = angular.module("walkingApp").directive('confirm', function(ConfirmService) {
     return {
         restrict: 'A',
@@ -18,35 +18,30 @@ var app = angular.module("walkingApp").directive('confirm', function(ConfirmServ
 });
 
 app.service('ConfirmService', function($modal) {
-  var service = {};
-  service.open = function (text, onOk) {
-    var modalInstance = $modal.open({
-      templateUrl: 'ng/customdirective/loginalert.html',
-      controller: 'ModalConfirmCtrl',
-      resolve: {
-        text: function () {
-          return text;
-        }
-      }
-    });
+  return {
+	  open : function (text, onOk) {
+		    var modalInstance = $modal.open({
+		      templateUrl: 'ng/customdirective/loginalert.html',
+		      controller: 'ModalConfirmCtrl',
+		      resolve: {
+		        text: function () {
+		          return text;
+		        }
+		      }
+		    });
 
-    modalInstance.result.then(function (selectedItem) {
-      onOk();
-    }, function () {
-    });
-  };
-  
-  return service;
+		    modalInstance.result.then(function (selectedItem) {
+		      onOk();
+		    }, function () {
+		    });
+		  }  
+  		} 
 })
-
 app.controller('ModalConfirmCtrl', function ($scope, $modalInstance, text) {
-
   $scope.text = text;
-
   $scope.ok = function () {
     $modalInstance.close(true);
   };
-
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
