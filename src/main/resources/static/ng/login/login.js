@@ -5,7 +5,7 @@
 'use strict';
 
 angular.module('walkingApp')
-  .controller('loginCtrl', function($scope,$location,$http,$state,AuthenticationFactory,UserAuthFactory,$timeout,$window,confirmService) {
+  .controller('loginCtrl', function($scope,$location,$http,$state,AuthenticationFactory,UserAuthFactory,$timeout,$window) {
 	 
 	  $scope.isLoggedIn = AuthenticationFactory.isLoggedIn();
 	   $scope.doLogin = function(username, password){
