@@ -12,7 +12,8 @@ var app = angular
     'smart-table',
     'toaster',
     'ngAnimate',
-    'ngCookies'
+    'ngCookies',
+    'base64'
     
   ])
   .config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider','$httpProvider',

@@ -20,6 +20,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	User findByActivationKey(@Param("activationKey") String activationKey);
 
 	List<User> findByUsernameContains(@Param("Username") String username);
+	
+	User findByUsernameAndPassword(@Param("Username") String username,
+			@Param("password") String password);
 
 	
 	Page<User> findAll(Pageable pageable);

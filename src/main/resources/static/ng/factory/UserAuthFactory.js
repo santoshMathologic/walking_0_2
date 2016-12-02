@@ -2,10 +2,15 @@
 angular.module("walkingApp").factory('UserAuthFactory', function($state,$window, $cookies, $location, $http, AuthenticationFactory) {
   return {
     login: function(username, password) {
-      return $http.post(apiLoginUrl, {
-        username: username,
-        password: password
-      });
+    	return $http({
+			method : 'POST',
+			url : apiLoginUrl + "/" + "doLogin",
+			headers : {
+				'Authorization':'Basic '+ $base64.encode(username+":"+password)
+				
+			},
+			
+		});
     },
     logout: function() {
  
