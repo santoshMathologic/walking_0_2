@@ -39,7 +39,7 @@ var app = angular
                     name:'walkingApp',
                     files:[
                            'ng/directives/home/home.js',
-                         
+                          
                    
                     ]
                 }),
@@ -166,7 +166,8 @@ var app = angular
                        'ng/factory/AuthenticationFactory.js',
                        'ng/factory/UserAuthFactory.js',
                        'ng/factory/TokenInterceptor.js',
-                       'ng/services/ConfirmService.js'
+                       'ng/services/ConfirmService.js',
+                       'ng/customdirective/confirm.js'
                        
                        
                 ]
