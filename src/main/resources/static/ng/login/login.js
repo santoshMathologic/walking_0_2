@@ -5,7 +5,7 @@
 'use strict';
 
 angular.module('walkingApp')
-  .controller('loginCtrl', function($scope,$location,$http,$state,AuthenticationFactory,UserAuthFactory,$timeout,$window) {
+  .controller('loginCtrl', function($scope,$location,$http,$state,AuthenticationFactory,UserAuthFactory,$timeout,$window,toaster) {
 	 
 	  $scope.isLoggedIn = AuthenticationFactory.isLoggedIn();
 	   $scope.doLogin = function(username, password){
@@ -13,7 +13,7 @@ angular.module('walkingApp')
 		    if((typeof username === 'undefined')&&(typeof password === 'undefined')){
 		    	//  throw new Error("Username and Password are Empty")
 		    	  $timeout(function(){
-		    	       window.alert("hi!");
+		    		  toaster.pop({type: 'error', title: 'Error', body: 'Unable To Login. Please Try Again!!!'}); // On Error Response PopUp the toaster if division Not removed from DB
 		    	    },500);
 		    	}
 		    else{
