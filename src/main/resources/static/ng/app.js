@@ -11,7 +11,7 @@ var api={
 }
 
 var apiUrl = api.protocol + '://' + api.server + ':' + api.port + api.baseUrl;
-var apiLoginUrl = api.protocol + '://' + api.server + ':' + api.port + api.loginUrl;
+var apiLoginUrl = api.protocol + '://' + api.server + ':' + api.port +api.baseUrl+api.loginUrl;
 var apiRegistrationUrl = api.protocol + '://' + api.server + ':' + api.port + api.registrationUrl;
 
 var app = angular

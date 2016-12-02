@@ -31,7 +31,8 @@ import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.impl.compression.CompressionCodecs;
 import io.jsonwebtoken.impl.crypto.MacProvider;
 
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author SANTOSH
@@ -54,7 +55,7 @@ public class AuthController {
 	
 	//private static final Logger WALKING_LOGGER = Logger.getLogger(AuthController.class);
 	
-	
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	
 	public AuthController() {
@@ -100,7 +101,11 @@ public class AuthController {
 
 		
 	 
-		return generatedToken;
+		logger.debug("This is a debug message");
+        logger.info("This is an info message");
+        logger.warn("This is a warn message");
+        logger.error("This is an error message");
+        return generatedToken;
 	}
 	
 	
