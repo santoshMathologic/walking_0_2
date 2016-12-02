@@ -1,5 +1,5 @@
 'use strict';
-angular.module("walkingApp").factory('UserAuthFactory', function($state,$window, $cookies, $location, $http, AuthenticationFactory) {
+angular.module("walkingApp").factory('UserAuthFactory', function($state,$window, $cookies,$base64,$location, $http, AuthenticationFactory) {
   return {
     login: function(username, password) {
     	return $http({

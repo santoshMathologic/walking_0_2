@@ -8,7 +8,11 @@ angular.module('walkingApp')
   .controller('loginCtrl', function($scope,$location,$http,$state,AuthenticationFactory,UserAuthFactory,$timeout,$window,toaster) {
 	 
 	  $scope.isLoggedIn = AuthenticationFactory.isLoggedIn();
-	   $scope.doLogin = function(username, password){
+	  $scope.auth = {
+			  username:"",
+			  password:""
+	  };
+	   $scope.doLogin = function(username,password){
 		   
 		    if((typeof username === 'undefined')&&(typeof password === 'undefined')){
 		    	//  throw new Error("Username and Password are Empty")
