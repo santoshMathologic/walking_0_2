@@ -92,9 +92,8 @@ var app = angular
               'ng/directives/dashboard/sidebar/sidebar.js',
               'ng/controllers/main.js',
               'ng/utils/customConverter.js',
-              
-              
-             
+              'ng/customdirective/confirm.js',
+              'ng/services/ConfirmService.js'
               ]
             })
           }
@@ -166,8 +165,9 @@ var app = angular
                        'ng/factory/AuthenticationFactory.js',
                        'ng/factory/UserAuthFactory.js',
                        'ng/factory/TokenInterceptor.js',
-                       'ng/services/ConfirmService.js',
-                       'ng/customdirective/confirm.js'
+                       'ng/customdirective/confirm.js',
+                       'ng/services/ConfirmService.js'
+                      
                        
                        
                 ]

@@ -7,7 +7,7 @@ var app = angular.module("walkingApp").service('confirmService',function($window
 	
 	 var service = {};
 	 
-	 service.openModalWindow = function(text,on){
+	 service.open  = function(text, onOk){
 		 
 		 var modalInstance = $modal.open({
 		   templateUrl:"ng/customdirective/loginalert.html",
