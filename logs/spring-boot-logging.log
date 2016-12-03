@@ -1,0 +1,88 @@
+2016-12-03 00:40:10.823  INFO 11008 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-12-03 00:40:12.573  INFO 11008 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-12-03 00:40:12.832  INFO 11008 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.WalkinDetailsRepository.
+2016-12-03 00:40:12.840  INFO 11008 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.RoleRepository.
+2016-12-03 00:40:12.842  INFO 11008 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.UserRepository.
+2016-12-03 00:40:12.844  INFO 11008 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.CompanyDetailsRepository.
+2016-12-03 00:40:12.848  INFO 11008 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.UserPlanRepository.
+2016-12-03 00:40:19.061  INFO 11008 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-12-03 00:40:19.063  INFO 11008 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.6
+2016-12-03 00:40:19.571  INFO 11008 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-12-03 00:41:01.665  INFO 11008 --- [http-nio-6060-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2016-12-03 00:42:59.701  INFO 3052 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-12-03 00:43:00.987  INFO 3052 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-12-03 00:43:01.192  INFO 3052 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.WalkinDetailsRepository.
+2016-12-03 00:43:01.197  INFO 3052 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.RoleRepository.
+2016-12-03 00:43:01.200  INFO 3052 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.UserRepository.
+2016-12-03 00:43:01.201  INFO 3052 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.CompanyDetailsRepository.
+2016-12-03 00:43:01.207  INFO 3052 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.UserPlanRepository.
+2016-12-03 00:43:06.998  INFO 3052 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-12-03 00:43:07.001  INFO 3052 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.6
+2016-12-03 00:43:07.777  INFO 3052 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-12-03 00:58:53.455  INFO 1220 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-12-03 00:58:55.317  INFO 1220 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-12-03 00:58:55.436  INFO 1220 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.WalkinDetailsRepository.
+2016-12-03 00:58:55.443  INFO 1220 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.RoleRepository.
+2016-12-03 00:58:55.446  INFO 1220 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.UserRepository.
+2016-12-03 00:58:55.452  INFO 1220 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.CompanyDetailsRepository.
+2016-12-03 00:58:55.453  INFO 1220 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.UserPlanRepository.
+2016-12-03 00:58:59.920  INFO 1220 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-12-03 00:58:59.923  INFO 1220 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.6
+2016-12-03 00:59:00.424  INFO 1220 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-12-03 01:11:42.526  INFO 1220 --- [http-nio-6060-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2016-12-03 01:12:21.355  INFO 800 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-12-03 01:12:23.823  INFO 800 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-12-03 01:12:24.079  INFO 800 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.WalkinDetailsRepository.
+2016-12-03 01:12:24.089  INFO 800 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.RoleRepository.
+2016-12-03 01:12:24.091  INFO 800 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.UserRepository.
+2016-12-03 01:12:24.093  INFO 800 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.CompanyDetailsRepository.
+2016-12-03 01:12:24.096  INFO 800 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.UserPlanRepository.
+2016-12-03 01:12:29.516  INFO 800 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-12-03 01:12:29.518  INFO 800 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.6
+2016-12-03 01:12:30.465  INFO 800 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-12-03 01:13:01.857  INFO 800 --- [http-nio-6060-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2016-12-03 01:15:50.690  INFO 800 --- [http-nio-6060-exec-1] c.c.p.walkin.controllers.AuthController  : This is an info message
+2016-12-03 01:15:50.691  WARN 800 --- [http-nio-6060-exec-1] c.c.p.walkin.controllers.AuthController  : This is a warn message
+2016-12-03 01:15:50.692 ERROR 800 --- [http-nio-6060-exec-1] c.c.p.walkin.controllers.AuthController  : This is an error message
+2016-12-03 15:11:52.781  INFO 8400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-12-03 15:11:53.681  INFO 8400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-12-03 15:11:53.744  INFO 8400 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.WalkinDetailsRepository.
+2016-12-03 15:11:53.751  INFO 8400 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.RoleRepository.
+2016-12-03 15:11:53.754  INFO 8400 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.UserRepository.
+2016-12-03 15:11:53.759  INFO 8400 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.CompanyDetailsRepository.
+2016-12-03 15:11:53.762  INFO 8400 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.UserPlanRepository.
+2016-12-03 15:11:56.784  INFO 8400 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-12-03 15:11:56.787  INFO 8400 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.6
+2016-12-03 15:11:57.153  INFO 8400 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-12-03 15:12:14.116  INFO 8400 --- [http-nio-6060-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2016-12-03 15:12:21.195  INFO 8400 --- [http-nio-6060-exec-1] c.c.p.walkin.controllers.AuthController  : This is an info message
+2016-12-03 15:12:21.196  WARN 8400 --- [http-nio-6060-exec-1] c.c.p.walkin.controllers.AuthController  : This is a warn message
+2016-12-03 15:12:21.196 ERROR 8400 --- [http-nio-6060-exec-1] c.c.p.walkin.controllers.AuthController  : This is an error message
+2016-12-03 15:13:27.822  INFO 8400 --- [http-nio-6060-exec-1] c.c.p.walkin.controllers.AuthController  : This is an info message
+2016-12-03 15:13:27.823  WARN 8400 --- [http-nio-6060-exec-1] c.c.p.walkin.controllers.AuthController  : This is a warn message
+2016-12-03 15:13:27.823 ERROR 8400 --- [http-nio-6060-exec-1] c.c.p.walkin.controllers.AuthController  : This is an error message
+2016-12-03 15:13:44.078  INFO 8072 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-12-03 15:13:44.863  INFO 8072 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-12-03 15:13:44.951  INFO 8072 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.WalkinDetailsRepository.
+2016-12-03 15:13:44.958  INFO 8072 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.RoleRepository.
+2016-12-03 15:13:44.960  INFO 8072 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.UserRepository.
+2016-12-03 15:13:44.963  INFO 8072 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.CompanyDetailsRepository.
+2016-12-03 15:13:44.977  INFO 8072 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.UserPlanRepository.
+2016-12-03 15:13:48.233  INFO 8072 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-12-03 15:13:48.237  INFO 8072 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.6
+2016-12-03 15:13:48.589  INFO 8072 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-12-03 15:14:06.044  INFO 8072 --- [http-nio-6060-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2016-12-03 15:15:04.704  INFO 8072 --- [http-nio-6060-exec-1] c.c.p.walkin.controllers.AuthController  : This is an info message
+2016-12-03 15:15:04.706  WARN 8072 --- [http-nio-6060-exec-1] c.c.p.walkin.controllers.AuthController  : This is a warn message
+2016-12-03 15:15:04.707 ERROR 8072 --- [http-nio-6060-exec-1] c.c.p.walkin.controllers.AuthController  : This is an error message
+2016-12-03 15:17:37.047  INFO 2860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-12-03 15:17:37.968  INFO 2860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-12-03 15:17:38.028  INFO 2860 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.WalkinDetailsRepository.
+2016-12-03 15:17:38.034  INFO 2860 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.RoleRepository.
+2016-12-03 15:17:38.036  INFO 2860 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.UserRepository.
+2016-12-03 15:17:38.038  INFO 2860 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.CompanyDetailsRepository.
+2016-12-03 15:17:38.041  INFO 2860 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Solr - Could not safely identify store assignment for repository candidate interface com.cfa.project.walkin.repositories.UserPlanRepository.
+2016-12-03 15:17:41.305  INFO 2860 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-12-03 15:17:41.310  INFO 2860 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.6
+2016-12-03 15:17:41.818  INFO 2860 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-12-03 15:18:17.557  INFO 2860 --- [http-nio-6060-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'

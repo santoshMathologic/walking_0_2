@@ -53,8 +53,6 @@ public class AuthController {
 	@Autowired
 	UserCustomRepository userCustomRepository;
 	
-	//private static final Logger WALKING_LOGGER = Logger.getLogger(AuthController.class);
-	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	
@@ -89,8 +87,6 @@ public class AuthController {
 	        String credentials = new String(Base64.getDecoder().decode(base64Credentials),Charset.forName("UTF-8"));
 	        // credentials = username:password
 	        final String[] userCredentials= credentials.split(":",2);
-	        
-	           
 	          
 	        generatedToken =  validateUserInfo(userCredentials[0],userCredentials[1]);
 	           
@@ -110,61 +106,18 @@ public class AuthController {
 	
 	
 	public String validateUserInfo(String username, String password) {
-		
 		try {
 			com.cfa.project.walkin.models.User user = userCustomRepository.findUsernameAndPassword(username, password);
+			System.out.println(""+user.getUsername());
+			System.out.println(""+user.getRole().getName());
+			
 		} catch (CustomException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	 
 		 return null;
 	}
 
-	public String generateJWTToken(String userName,String password, String roleCode/*, String currentPlan*/){
 		
-		
-		
-		 /**
-         *   Create a object to stor UserName and password and Convert it to Gson Object
-         */
-		CustomToken customToken = new CustomToken();
-		customToken.setUserName(userName);
-	    customToken.setPassword(password);
-	    customToken.setRoleCode(roleCode);
-	   // customToken.setCurrentPlan(currentPlan);
-        
-		
-		 // System.out.println(new Gson().toJson(authCont));
-        
-        Key key = MacProvider.generateKey();
-        
-        /**
-         *  Encoding Algorithm using BASE AUTH 
-         * 
-         */
-        String compactJwsToken = Jwts.builder()
-     		   				.setSubject(new Gson().toJson(customToken))  
-     		   				.compressWith(CompressionCodecs.DEFLATE)                         
-     		   				.signWith(SignatureAlgorithm.HS512, key)
-     		   				.compact();
-        
-      
-        customToken.setToken(compactJwsToken);
-        
-        System.out.println(""+compactJwsToken);
-        
-        try {
-     	   System.out.println(""+Jwts.parser().setSigningKey(key).parseClaimsJws(compactJwsToken)); 
-     	} catch (SignatureException e) {
-     	    //don't trust the JWT!
-     	}
-     
-		return new Gson().toJson(customToken); 
-		
-	}
-	
-	
-	
 
 }
